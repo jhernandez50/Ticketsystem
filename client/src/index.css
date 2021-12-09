@@ -1,13 +1,127 @@
-body {
+html,body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding:0;
+}
+.p-default{
+  padding:0 !important;
+  margin: 0 !important;
+}
+.brand-logo{
+  color: #fff;
+}
+.mb-20{
+  margin-bottom: 20px;
+}
+.d-none{
+  display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.custom-badge{
+  padding:5px 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 5px;
+  width: 50%;
+  font-size: 18px;
+  color: #fff;
+}
+.badge-sm{
+  padding:3px 7px;
+  font-size:14px;
+}
+
+.red{
+  background-color: rgb(150, 37, 29);
+}
+.green{
+  background-color: rgb(2, 150, 69);   
+}
+.text-greet{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.btn-logout{
+  background: rgb(177, 116, 2);
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  padding:5px 10px;
+  border-radius: 10px;
+  border:1px solid #fff;
+}
+.ml-30{
+  margin-left: 30px!important;
+}
+.panel-link{
+  display: block;
+  -webkit-transition: -webkit-box-shadow .25s;
+  transition: -webkit-box-shadow .25s;
+  transition: box-shadow .25s;
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+  padding: 24px;
+  margin: .5rem 0 1rem 0;
+  border-radius: 2px;
+  background-color: #004d40;
+  color:#fff;
+  text-align: center;
+  text-transform: capitalize;
+}
+.btn-message{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 5px;
+  padding:5px 10px;
+  text-transform: capitalize;
+}
+.light{
+  border:1px solid #004d40;
+  background-color:#fff;
+  color: #004d40;
+}
+.dark{
+  border:1px solid rgb(177, 116, 2);
+  background-color:#fff;
+  color: rgb(177, 116, 2);
+}
+.text-capitalize{
+  text-transform: capitalize;
+}
+.clickable{
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.clickable:hover::after{
+  content: 'View Details';
+  position: absolute;
+  padding-top: 25%;
+  text-align: center;
+  color: #000;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(2, 150, 69);
+  opacity: 0.9;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+.card-action>span{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgb(248, 162, 2);
+  font-size:16px;
+  text-transform: capitalize;
+  margin-right:20px;
+}
+.btn-assign{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(2, 150, 69);
+  color:#000;
+  border: 1px solid #000;
+  border-radius: 7px;
+  padding:5px 10px;
+}
+.btn-assign:hover{
+  cursor: pointer;
 }
