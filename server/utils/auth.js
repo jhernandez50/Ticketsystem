@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const secret = 'ticketing-app-secret';
 const expiration = '5h';
-
+const test = 1;
 module.exports = {
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
