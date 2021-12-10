@@ -25,6 +25,7 @@
   "bugs": {
     "url": "https://github.com/jhernandez50/Ticketsystem/issues"
   },
-  "homepage": "https://github.com/jhernandez50/Ticketsystem#readme",
-  "description": ""
+  "homepage": ".",
+  "description": "",
+  "proxy": "http://127.0.0.1:3001"
 }
