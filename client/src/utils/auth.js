@@ -28,7 +28,13 @@ class AuthService {
     localStorage.setItem('user_id',_id)
     localStorage.setItem('full_name',fullname)
     localStorage.setItem('user_type',userType)
-    window.location.assign('/');
+    if(userType==="admin"){
+      window.location.assign('/dashboard');
+    }
+    else{
+      window.location.assign('/');
+    }
+    
   }
   login(idToken) {
     localStorage.setItem('id_token', idToken);

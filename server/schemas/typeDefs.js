@@ -18,6 +18,26 @@ const typeDefs = gql`
     service_type:String!
     created_by:String!
   }
+  type ServicebyUser{
+      _id: ID!
+      title: String
+      description: String
+      phone:String
+      year_of_exp:String
+      service_type:String
+      created_by:User
+    }
+  type ticketbyUser{
+    _id: ID!
+    title: String!
+    description: String!
+    phone:String!
+    ticket_type:String!
+    assigned:Boolean
+    created_by:User!
+    created_on:String!
+    assigned_to:String
+  }
 
   type Ticket {
     _id: ID!
@@ -37,15 +57,20 @@ const typeDefs = gql`
     token:ID
     user:User
   }
+  type TicketNServices{
+    ticket:ticketbyUser
+    services:[ServicebyUser]
+  }
   type Query {
     me: User
-    getServices:[Service!]
+    getServices:[ServicebyUser!]
     getTickets:[Ticket!]
     getMembers:[User!]
     getCustomers:[User!]
     getServiceDetail:[Service!]
     getMyTickets:[Ticket!]
     getAssignedTickets:[Ticket!]
+    getTicketnServices(ticketId:String):TicketNServices
   }
 
   type Mutation {
@@ -53,6 +78,7 @@ const typeDefs = gql`
     userLogin(email: String!, password: String!): Auth
     addService(title: String!, description: String!, phone: String!,year_of_exp:String!,service_type:String!,created_by:String!): responceText
     addTicket(title: String!, description: String!, phone: String!,ticket_type:String!,assigned:Boolean!,created_by:String!,created_on:String!): responceText
+    assignTicket(member_id:String,ticket_id:String):Ticket
   }
 `;
 

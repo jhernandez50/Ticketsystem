@@ -13,7 +13,7 @@ export default function Navbar({user}) {
               <div className="card teal darken-1">
                 <div className="card-content white-text">
                   <div className="container">
-                        <Link className="brand-logo" to="/"><span className="card-title">717 Networks</span></Link>
+                        <Link className="brand-logo" to={user.userType==="admin"?"/dashboard":"/"}><span className="card-title">717 Networks</span></Link>
                    </div>
                 </div>
                 <div className="card-action teal darken-3">

@@ -83,7 +83,19 @@ mutation addService(
   
 }
 `
-
+export const UPDATE_TICKET=gql`
+mutation assignTicket(
+  $member_id:String 
+  $ticket_id:String) {
+  assignTicket(
+    member_id:$member_id
+    ticket_id:$ticket_id
+  ){
+    _id
+    assigned
+  }
+}
+`
 
 export const SAVE_BOOK = gql`
   mutation saveBook($newBook: InputBook!) {

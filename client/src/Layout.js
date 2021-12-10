@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react'
 import Navbar from './components/Navbar';
-import {Login,Signup} from './pages/Common';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from './utils/queries';
-
+import {Login,Signup} from './pages/Common';
+import {Dashboard,ViewCustomers,ViewServices,ViewMembers,ManageTicket,TicketDetail} from './pages/Admin'
 import {Homepage,MyTickets,AddTicket,AssignedTickets,AddService} from './pages/User'
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 export default function Layout() {
@@ -40,10 +40,46 @@ export default function Layout() {
                 ()=>(<Login setUser={setUser} user={user}/>)}/>
                 <Route path="/signup" render={()=>(<Signup/>)}/>
                 <Route path="/login" render={()=>(<Login setUser={setUser} user={user}/>)}/>
-                <Route path="/add-ticket" render={()=>(<AddTicket user={user}/>)}/>
-                <Route path="/my-tickets" render={()=>(<MyTickets user={user}/>)}/>
-                <Route path="/add-service" render={()=>(<AddService user={user}/>)}/>
-                <Route path="/assigned-tickets" render={()=>(<AssignedTickets user={user}/>)}/>
+                {/* customer routes */}
+                {
+                    user.userType==="customer"?
+                    [
+                        <Route path="/add-ticket" render={()=>(<AddTicket user={user}/>)}/>,
+                        <Route path="/my-tickets" render={()=>(<MyTickets user={user}/>)}/>
+                    ]:
+                    null
+                }
+               
+               
+                {/* IT member routes */}
+                {
+                    user.userType==='member'?
+                    [
+                    <Route path="/add-service" render={()=>(<AddService user={user}/>)}/>,
+                    <Route path="/assigned-tickets" render={()=>(<AssignedTickets user={user}/>)}/>
+                    ]:
+                    null
+                }
+                
+                {/* Admin routes */}
+                {
+                   user.userType==='admin'?
+                   [
+                    <Route path="/dashboard" exact render={user.isLoggedIn&&user.userType==="admin"?
+                    ()=>(<Dashboard/>):
+                    ()=>(<Login setUser={setUser} user={user}/>)}/>,
+                    <Route path="/services" render={()=>(<ViewServices />)}/>,
+                    <Route path="/add-ticket" render={()=>(<AddTicket user={user}/>)}/>,
+                    <Route path="/customers" render={()=>(<ViewCustomers/>)}/>,
+                    <Route path="/it-members" render={()=>(<ViewMembers />)}/>,
+                    <Route path="/manage-tickets" render={()=>(<ManageTicket/>)}/>,
+                    <Route path="/ticket-detail/:id" render={()=>(<TicketDetail/>)}/>
+                    ]:
+                    null
+
+                }
+                
+
             </Switch>
             </Router>
         )

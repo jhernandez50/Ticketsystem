@@ -28,7 +28,10 @@ export default function Login(props) {
             auth.login(data.userLogin.token);
             auth.setUser(data.userLogin.user);
             } catch (err) {
-            setError(err.graphQLErrors[0].message);
+                if(err.graphQLErrors.length!=0){
+                    setError(err.graphQLErrors[0].message);
+                }
+           
           }
     }
     return (
